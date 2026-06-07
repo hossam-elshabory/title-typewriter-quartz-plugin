@@ -1,10 +1,15 @@
 import { QuartzComponent } from '@quartz-community/types';
 
-interface ExampleComponentOptions {
-    prefix?: string;
-    suffix?: string;
-    className?: string;
+interface TypewriterTitleOptions {
+    /** Milliseconds per character during typing animation. Lower is faster. */
+    typingSpeed?: number;
+    /** Whether the cursor keeps blinking indefinitely after typing finishes. */
+    keepBlinking?: boolean;
+    /** Speed of the blink cycle in milliseconds. */
+    blinkSpeed?: number;
+    /** Only play the typing animation on the home page. When false, typing plays on the first page visited. */
+    animateOnlyOnHome?: boolean;
 }
-declare const _default: (opts?: ExampleComponentOptions) => QuartzComponent;
+declare const _default: (userOpts?: TypewriterTitleOptions) => QuartzComponent;
 
-export { _default as ExampleComponent, type ExampleComponentOptions };
+export { _default as TypewriterTitle, type TypewriterTitleOptions };
