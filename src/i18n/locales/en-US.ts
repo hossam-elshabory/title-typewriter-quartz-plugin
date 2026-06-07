@@ -1,7 +1,8 @@
 export default {
   components: {
-    example: {
-      title: "Example",
+    typewriterTitle: {
+      title: "Typewriter Title",
+      untitled: "Untitled",
     },
   },
 };

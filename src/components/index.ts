@@ -1,2 +1,2 @@
-export { default as ExampleComponent } from "./ExampleComponent";
-export type { ExampleComponentOptions } from "./ExampleComponent";
+export { default as TypewriterTitle } from "./TypewriterTitle";
+export type { TypewriterTitleOptions } from "./TypewriterTitle";

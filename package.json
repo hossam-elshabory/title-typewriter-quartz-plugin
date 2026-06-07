@@ -1,23 +1,21 @@
 {
-  "name": "@quartz-community/plugin-template",
-  "version": "0.1.0",
-  "description": "Template repository for Quartz community plugins.",
+  "name": "title-typewriter-quartz-plugin",
+  "version": "1.0.0",
+  "description": "A Quartz v5 component plugin that renders the site title with a typewriter animation and glass reflection sweep effect.",
   "type": "module",
   "license": "MIT",
-  "author": "Quartz Community",
-  "homepage": "https://quartz.jzhao.xyz",
+  "author": "Hossam Elshabory",
+  "homepage": "https://github.com/hossam-elshabory/title-typewriter-quartz-plugin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/quartz-community/plugin-template"
+    "url": "https://github.com/hossam-elshabory/title-typewriter-quartz-plugin"
   },
   "keywords": [
     "quartz",
     "quartz-plugin",
-    "plugin-template",
-    "remark",
-    "rehype",
-    "mdast",
-    "hast"
+    "typewriter",
+    "animation",
+    "component"
   ],
   "files": [
     "dist",
@@ -69,55 +67,61 @@
     "@quartz-community/utils": "github:quartz-community/utils"
   },
   "devDependencies": {
-    "@types/hast": "^3.0.4",
-    "@types/mdast": "^4.0.4",
+    "@types/jsdom": "^21.1.7",
     "@types/node": "^24.10.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "github-slugger": "^2.0.0",
-    "hast-util-to-jsx-runtime": "^2.3.6",
-    "mdast-util-find-and-replace": "^3.0.2",
+    "jsdom": "^25.0.1",
     "preact": "^10.28.2",
+    "preact-render-to-string": "^6.5.12",
     "prettier": "^3.6.2",
-    "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.1",
-    "remark-parse": "^11.0.0",
-    "remark-stringify": "^11.0.0",
     "sass": "^1.97.3",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",
-    "unified": "^11.0.5",
-    "unist-util-visit": "^5.1.0",
     "vfile": "^6.0.3",
     "vitest": "^2.1.9"
   },
   "quartz": {
-    "name": "plugin-template",
-    "displayName": "Plugin Template",
-    "category": "transformer",
+    "name": "title-typewriter",
+    "displayName": "Title Typewriter",
+    "category": [
+      "component"
+    ],
     "version": "1.0.0",
     "quartzVersion": ">=5.0.0",
     "dependencies": [],
-    "defaultOrder": 50,
     "defaultEnabled": true,
-    "defaultOptions": {},
+    "defaultOptions": {
+      "typingSpeed": 85,
+      "keepBlinking": false,
+      "blinkSpeed": 650,
+      "animateOnlyOnHome": true
+    },
     "optionSchema": {
-      "highlightToken": {
-        "type": "enum",
-        "values": [
-          "==",
-          "**",
-          "~~"
-        ]
+      "typingSpeed": {
+        "type": "number",
+        "description": "Milliseconds per character during typing animation. Lower is faster."
+      },
+      "keepBlinking": {
+        "type": "boolean",
+        "description": "Whether the cursor keeps blinking indefinitely after typing finishes."
+      },
+      "blinkSpeed": {
+        "type": "number",
+        "description": "Speed of the blink cycle in milliseconds."
+      },
+      "animateOnlyOnHome": {
+        "type": "boolean",
+        "description": "Only play the typing animation on the home page. When false, typing plays on the first page visited."
       }
     },
     "components": {
-      "ExampleComponent": {
-        "displayName": "Example Component",
-        "defaultPosition": "right",
-        "defaultPriority": 50
+      "TypewriterTitle": {
+        "displayName": "Typewriter Title",
+        "defaultPosition": "left",
+        "defaultPriority": 10
       }
     }
   },

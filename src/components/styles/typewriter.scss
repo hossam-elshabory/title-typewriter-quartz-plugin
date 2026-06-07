@@ -1,0 +1,76 @@
+#typewriter-title {
+  font-family: var(--headerFont);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark);
+  text-decoration: none;
+  display: inline-block;
+  /* Ensures spaces between words wrap naturally */
+  white-space: pre-wrap;
+
+  /* Blinking cursor */
+  &.typing::after {
+    content: "|";
+    color: var(--secondary);
+    margin-left: 2px;
+    animation: tw-blink var(--blink-speed, 0.65s) step-end infinite;
+  }
+
+  /* Glass letter spans */
+  .glass-letter {
+    display: inline;
+    will-change: color, text-shadow;
+  }
+
+  /* Smooth Glass Reflection Sweep */
+  &.sweep-active .glass-letter {
+    animation: tw-glass-beam 1.2s ease-in-out forwards;
+    animation-delay: var(--delay);
+  }
+}
+
+@keyframes tw-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes tw-glass-beam {
+  0% {
+    color: var(--dark);
+    text-shadow: none;
+  }
+
+  15% {
+    /* Leading edge: sharp white highlight */
+    color: #ffffff;
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.9),
+      0 0 8px var(--tertiary);
+  }
+
+  35% {
+    /* Mid-beam: tinted glow */
+    color: var(--tertiary);
+    text-shadow:
+      0 0 4px var(--tertiary),
+      0 0 12px rgba(255, 255, 255, 0.4);
+  }
+
+  60% {
+    /* Trailing edge: soft fade */
+    color: var(--tertiary);
+    text-shadow: 0 0 3px var(--tertiary);
+  }
+
+  100% {
+    /* Return to normal */
+    color: var(--dark);
+    text-shadow: none;
+  }
+}
