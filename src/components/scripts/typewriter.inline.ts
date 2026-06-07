@@ -58,6 +58,15 @@ if (typeof window !== "undefined") {
     // Capture the narrowed reference so closures retain the non-null type
     const titleEl: HTMLElement = rawEl;
 
+    // Remove any other .page-title elements (e.g. the built-in PageTitle
+    // component) to avoid rendering duplicate titles.
+    const typewriterContainer = titleEl.closest(".page-title");
+    document.querySelectorAll(".page-title").forEach((el) => {
+      if (el !== typewriterContainer) {
+        el.remove();
+      }
+    });
+
     const title = titleEl.getAttribute("data-title") || "";
     const keepBlinking = titleEl.getAttribute("data-keep-blinking") === "true";
     const blinkSpeed = titleEl.getAttribute("data-blink-speed") || "650";

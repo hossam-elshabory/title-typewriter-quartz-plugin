@@ -33,7 +33,7 @@ export default ((userOpts?: TypewriterTitleOptions) => {
     const title = cfg?.pageTitle ?? "Untitled";
 
     return (
-      <div class={classNames(displayClass, "page-title")}>
+      <h2 class={classNames(displayClass, "page-title")}>
         <a
           href="/"
           id="typewriter-title"
@@ -46,7 +46,7 @@ export default ((userOpts?: TypewriterTitleOptions) => {
         >
           <noscript>{title}</noscript>
         </a>
-      </div>
+      </h2>
     );
   };
 

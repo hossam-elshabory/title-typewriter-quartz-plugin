@@ -93,9 +93,9 @@ describe("TypewriterTitle component contract", () => {
     expect(noscript?.textContent).toBe("Fallback Title");
   });
 
-  it("wraps in page-title div with displayClass", async () => {
+  it("wraps in page-title h2 with displayClass", async () => {
     const dom = await renderComponent(undefined, "Test", "desktop-only");
-    const wrapper = dom.window.document.querySelector("div.page-title");
+    const wrapper = dom.window.document.querySelector("h2.page-title");
 
     expect(wrapper).not.toBeNull();
     expect(wrapper?.classList.contains("desktop-only")).toBe(true);
