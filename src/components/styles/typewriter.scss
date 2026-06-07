@@ -1,12 +1,19 @@
+h2.page-title {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
 #typewriter-title {
   font-family: var(--headerFont);
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--dark);
   text-decoration: none;
-  display: inline-block;
-  /* Ensures spaces between words wrap naturally */
-  white-space: pre-wrap;
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0;
 
   /* Blinking cursor */
   &.typing::after {
@@ -30,6 +37,7 @@
 }
 
 @keyframes tw-blink {
+
   0%,
   100% {
     opacity: 1;
